@@ -1,6 +1,7 @@
-package server
+package base
 
 import (
+	"gin_demo/server/define"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -14,7 +15,7 @@ func Redirect1(c *gin.Context) {
 
 func Redirect2(c *gin.Context) {
 	c.Request.URL.Path = "/TestRedirect" //重定向的路由
-	GinEngine.HandleContext(c)
+	define.GinEngine.HandleContext(c)
 }
 func TestRedirect(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
