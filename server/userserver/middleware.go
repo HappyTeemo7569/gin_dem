@@ -10,8 +10,8 @@ import (
 func UserMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		fmt.Println("中间件开始执行=====")
-		name := c.Query("name")
-		ageStr := c.Query("age")
+		name := c.PostForm("name")
+		ageStr := c.PostForm("age")
 		age, err := strconv.Atoi(ageStr) //string转int
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusBadRequest, "输入的数据错误，年龄不是整数")
@@ -28,5 +28,15 @@ func UserMiddleware() gin.HandlerFunc {
 		c.Next() //执行后续操作
 		fmt.Println(name, age)
 
+	}
+}
+
+func AuthMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		fmt.Println("中间件2开始执行=====")
+
+		c.Next() //执行后续操作
+
+		return
 	}
 }
