@@ -7,6 +7,7 @@ import (
 
 func VideoServer() http.Handler {
 	r1 := gin.Default()
+	r1.Use(VideoMiddleware())
 	r1.GET("/VideoServer", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code": http.StatusOK,

@@ -7,6 +7,7 @@ import (
 
 func UserServer() http.Handler {
 	r1 := gin.Default()
+	r1.Use(UserMiddleware())
 	r1.GET("/UserServer", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code": http.StatusOK,
