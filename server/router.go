@@ -10,4 +10,11 @@ func InitRouter() {
 	GinEngine.GET("/redirect2", Redirect2)
 	//路由：127.0.0.1:9090/TestRedirect
 	GinEngine.GET("/TestRedirect", TestRedirect)
+
+	GinEngine.GET("/GetOtherData", GetOtherData)
+
+	GinEngine.GET("/Json", Json)
+	GinEngine.GET("/SomeHTML", SomeHTML)
+	GinEngine.GET("/SomeXML", SomeXML)
+	GinEngine.GET("/SomeYAML", SomeYAML)
 }
